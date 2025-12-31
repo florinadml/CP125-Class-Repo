@@ -1,8 +1,13 @@
 import pytest
-import sys
+import importlib.util
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from exercise4 import has_warming_trend
+
+# Load exercise4.py from the parent directory using absolute path
+_exercise_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'exercise4.py')
+_spec = importlib.util.spec_from_file_location("exercise4_lab3", _exercise_path)
+_module = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_module)
+has_warming_trend = _module.has_warming_trend
 
 def test_warming_at_start():
     assert has_warming_trend([25, 27, 29, 28, 30, 32, 31]) == True
