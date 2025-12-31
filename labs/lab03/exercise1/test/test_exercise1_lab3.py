@@ -1,8 +1,13 @@
 import pytest
-import sys
+import importlib.util
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from exercise1 import count_bright_spots
+
+# Load exercise1.py from the parent directory using absolute path
+_exercise_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'exercise1.py')
+_spec = importlib.util.spec_from_file_location("exercise1_lab3", _exercise_path)
+_module = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_module)
+count_bright_spots = _module.count_bright_spots
 
 def test_two_bright_spots():
     assert count_bright_spots([100, 120, 200, 150, 180, 160, 140]) == 2

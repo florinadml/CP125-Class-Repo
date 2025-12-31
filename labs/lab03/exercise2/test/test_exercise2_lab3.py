@@ -1,8 +1,14 @@
 import pytest
-import sys
+import importlib.util
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from exercise2 import find_station, count_stops
+
+# Load exercise2.py from the parent directory using absolute path
+_exercise_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'exercise2.py')
+_spec = importlib.util.spec_from_file_location("exercise2_lab3", _exercise_path)
+_module = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_module)
+find_station = _module.find_station
+count_stops = _module.count_stops
 
 def test_basic_forward():
     stations = ["Central", "Marina", "Bukit", "Orchard", "Sentosa"]
