@@ -1,5 +1,7 @@
 def count_bright_spots(pixels):
     count = 0 
-    for pixel in range(7):
-        if pixel 
+    for i in range(1, len(pixels)-1 ):
+        if pixels[i] > pixels[i -1] and pixels[i] > pixels[i + 1]:
+            count += 1
+    return count 
 
