@@ -1,23 +1,30 @@
-# Lab 02 Exercise 9: Level Up Calculator
-# Write your code below:
-
 def calculate_xp_required(current_level):
-    """Return XP needed to level up (level * 100)."""
-    # TODO: Implement this function
-    pass
-
-def can_level_up(xp_remaining, xp_required):
-    """Return True if xp_remaining >= xp_required."""
-    # TODO: Implement this function
-    pass
-
-def simulate_leveling(total_xp):
     """
-    Simulate leveling with given XP.
-    Returns: (final_level, remaining_xp)
+    Calculate XP needed for next level (level * 100).
     """
-    # TODO: Implement using calculate_xp_required and can_level_up
+    # TODO: Implement this
     pass
 
-# Test your code here
-print("Testing Level Up Calculator...")
+
+def can_level_up(current_xp, required_xp):
+    """
+    Check if player has enough XP to level up.
+    """
+    # TODO: Implement this
+    pass
+
+
+def calculate_final_level(total_xp):
+    """
+    Calculate the final level reached.
+    """
+    # TODO: Implement this
+    pass
+
+
+def calculate_remaining_xp(total_xp):
+    """
+    Calculate XP leftover after leveling.
+    """
+    # TODO: Implement this
+    pass

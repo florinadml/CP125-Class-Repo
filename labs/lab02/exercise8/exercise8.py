@@ -1,23 +1,30 @@
-# Lab 02 Exercise 8: Bouncing Ball Simulation
-# Write your code below:
-
 def calculate_bounce_height(current_height):
-    """Calculate next bounce height (80% of current)."""
-    # TODO: Implement this function
+    """
+    Calculate the next bounce height (80% of current).
+    """
+    # TODO: Implement this
     pass
+
 
 def is_ball_stopped(height):
-    """Return True if height < 1, False otherwise."""
-    # TODO: Implement this function
+    """
+    Check if the ball has stopped (height < 1).
+    """
+    # TODO: Implement this
     pass
 
-def simulate_bouncing_ball(start_height):
+
+def calculate_bounce_count(initial_height):
     """
-    Simulate bouncing ball.
-    Returns: (bounce_count, total_distance)
+    Count how many times the ball bounces.
     """
-    # TODO: Implement using calculate_bounce_height and is_ball_stopped
+    # TODO: Implement this
     pass
 
-# Test your code here
-print("Testing Bouncing Ball Simulation...")
+
+def calculate_total_distance(initial_height):
+    """
+    Calculate total distance traveled.
+    """
+    # TODO: Implement this
+    pass
