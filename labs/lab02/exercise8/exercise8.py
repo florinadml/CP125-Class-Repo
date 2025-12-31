@@ -1,6 +1,3 @@
-# Lab 02 Exercise 8: Bouncing Ball Simulation
-# Write your code below:
-
 def calculate_bounce_height(current_height):
     bounce_height = current_height * 0.80
     return bounce_height

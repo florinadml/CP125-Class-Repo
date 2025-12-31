@@ -2,7 +2,7 @@ import pytest
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from exercise9 import calculate_xp_required, can_level_up, simulate_leveling
+from exercise9 import calculate_xp_required, can_level_up, calculate_final_level, calculate_remaining_xp
 
 # Tests for calculate_xp_required
 def test_xp_required_level_1():
@@ -34,51 +34,68 @@ def test_cannot_level_up_insufficient():
 def test_cannot_level_up_zero():
     assert can_level_up(0, 100) == False
 
-# Tests for simulate_leveling
-def test_simulate_level_1_to_2():
+# Tests for calculate_final_level
+def test_final_level_from_100_xp():
     # 100 XP -> Level 2, 0 remaining
-    level, remaining = simulate_leveling(100)
-    assert level == 2
-    assert remaining == 0
+    assert calculate_final_level(100) == 2
 
-def test_simulate_level_1_to_3():
+def test_final_level_from_300_xp():
     # 300 XP -> Level 3 (100 + 200), 0 remaining
-    level, remaining = simulate_leveling(300)
-    assert level == 3
-    assert remaining == 0
+    assert calculate_final_level(300) == 3
 
-def test_simulate_level_1_to_4():
+def test_final_level_from_600_xp():
     # 600 XP -> Level 4 (100 + 200 + 300), 0 remaining
-    level, remaining = simulate_leveling(600)
-    assert level == 4
-    assert remaining == 0
+    assert calculate_final_level(600) == 4
 
-def test_simulate_with_leftover():
+def test_final_level_with_leftover():
     # 650 XP -> Level 4, 50 remaining
-    level, remaining = simulate_leveling(650)
-    assert level == 4
-    assert remaining == 50
+    assert calculate_final_level(650) == 4
 
-def test_simulate_not_enough_for_level_2():
+def test_final_level_not_enough_for_level_2():
     # 50 XP -> Level 1, 50 remaining
-    level, remaining = simulate_leveling(50)
-    assert level == 1
-    assert remaining == 50
+    assert calculate_final_level(50) == 1
 
-def test_simulate_zero_xp():
+def test_final_level_zero_xp():
     # 0 XP -> Level 1, 0 remaining
-    level, remaining = simulate_leveling(0)
-    assert level == 1
-    assert remaining == 0
+    assert calculate_final_level(0) == 1
 
-def test_simulate_large_xp():
+def test_final_level_large_xp():
     # 5500 XP -> 100+200+300+400+500+600+700+800+900+1000 = 5500 -> Level 11, 0 remaining
-    level, remaining = simulate_leveling(5500)
-    assert level == 11
-    assert remaining == 0
+    assert calculate_final_level(5500) == 11
 
-def test_simulate_large_xp_with_remainder():
+def test_final_level_large_xp_with_remainder():
     # 5600 XP -> Level 11, 100 remaining
-    level, remaining = simulate_leveling(5600)
-    assert level == 11
-    assert remaining == 100
+    assert calculate_final_level(5600) == 11
+
+# Tests for calculate_remaining_xp
+def test_remaining_xp_from_100():
+    # 100 XP -> Level 2, 0 remaining
+    assert calculate_remaining_xp(100) == 0
+
+def test_remaining_xp_from_300():
+    # 300 XP -> Level 3, 0 remaining
+    assert calculate_remaining_xp(300) == 0
+
+def test_remaining_xp_from_600():
+    # 600 XP -> Level 4, 0 remaining
+    assert calculate_remaining_xp(600) == 0
+
+def test_remaining_xp_with_leftover():
+    # 650 XP -> Level 4, 50 remaining
+    assert calculate_remaining_xp(650) == 50
+
+def test_remaining_xp_not_enough_for_level_2():
+    # 50 XP -> Level 1, 50 remaining
+    assert calculate_remaining_xp(50) == 50
+
+def test_remaining_xp_zero():
+    # 0 XP -> Level 1, 0 remaining
+    assert calculate_remaining_xp(0) == 0
+
+def test_remaining_xp_large():
+    # 5500 XP -> Level 11, 0 remaining
+    assert calculate_remaining_xp(5500) == 0
+
+def test_remaining_xp_large_with_remainder():
+    # 5600 XP -> Level 11, 100 remaining
+    assert calculate_remaining_xp(5600) == 100
