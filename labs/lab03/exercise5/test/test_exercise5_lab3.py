@@ -1,8 +1,14 @@
 import pytest
-import sys
+import importlib.util
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from exercise5 import get_position, has_overtaken
+
+# Load exercise5.py from the parent directory using absolute path
+_exercise_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'exercise5.py')
+_spec = importlib.util.spec_from_file_location("exercise5_lab3", _exercise_path)
+_module = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_module)
+get_position = _module.get_position
+has_overtaken = _module.has_overtaken
 
 def test_overtake_success():
     before = [5, 3, 7, 2, 9]
