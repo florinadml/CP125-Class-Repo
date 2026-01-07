@@ -12,7 +12,7 @@ calculate_restock_cost = _module.calculate_restock_cost
 
 
 def test_get_total_value():
-    assert get_total_value([50, 5, 100, 3, 25], [10.00, 25.00, 5.00, 50.00, 15.00]) == 1450.00
+    assert get_total_value([50, 5, 100, 3, 25], [10.00, 25.00, 5.00, 50.00, 15.00]) == 1650.00
 
 def test_get_total_value_simple():
     assert get_total_value([10, 20], [5.00, 10.00]) == 250.00

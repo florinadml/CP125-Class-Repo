@@ -4,7 +4,7 @@
 # However, it contains bugs that cause incorrect output.
 #
 # Expected output for the test below:
-#   Total value: $1450.00
+#   Total value: $1650.00
 #   Low stock (<10): [1, 3]
 #   Restock cost: $1500.00
 #
