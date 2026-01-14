@@ -1,10 +1,10 @@
 
 def filter_query_times(times):
-    """
-    Remove slow outliers (mean + std deviation) and return sorted times.
-    """
-    pass
-
+   mean = sum(times) / len(times)
+   
+   variance = sum ((t - mean) ** 2 for t in times) / len(times)
+   std_ev = variance **(1/2)
+   upper_limit = mean + std_ev
 
 # Test
 query_times = [45, 52, 48, 180, 51, 47, 50, 12]
