@@ -68,6 +68,8 @@ def test_build_student_report_sorting():
     enrollments = [("S1", "Math"), ("S2", "Math"), ("S2", "Physics"), ("S3", "Math")]
     required = {"Math", "Physics", "CS"}
     result = build_student_report(students, enrollments, required)
+    # S1: 2 missing, S3: 2 missing, S2: 1 missing
+    # Sort by count desc, then by student_id asc for ties
     assert result == [("S1", 2), ("S3", 2), ("S2", 1)]
 
 def test_build_student_report_empty_students():
@@ -90,6 +92,7 @@ def test_find_incomplete_students_all_complete():
 def test_find_incomplete_students_all_incomplete():
     enrollments = [("S1", "Math"), ("S2", "CS")]
     required = {"Math", "Physics", "CS"}
+    # Both have 2 missing, sort by count desc, then by student_id asc
     assert find_incomplete_students(enrollments, required) == [("S1", 2), ("S2", 2)]
 
 def test_find_incomplete_students_empty():

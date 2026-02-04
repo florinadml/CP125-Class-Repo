@@ -36,7 +36,8 @@ def test_all_above_average():
 
 def test_decimal_scores():
     scores = [("S1", 85.5), ("S2", 90.5), ("S3", 75.5)]
-    assert analyze_scores(scores) == (90.5, 83.83333333333333, 1)
+    # Average: 83.833..., Above: 85.5 and 90.5 = 2 students
+    assert analyze_scores(scores) == (90.5, 83.83333333333333, 2)
 
 def test_large_dataset():
     scores = [(f"S{i}", 80 + i) for i in range(10)]
