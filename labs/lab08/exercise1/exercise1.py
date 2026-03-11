@@ -6,7 +6,7 @@ def filter_passing_scores(input_file, output_file):
     Filter students with passing scores (>= 80) and write to output file.
 
     Args:
-        input_file: path to input file (student_id score per line)
+        input_file: path to input file (student_id and score on alternating lines)
         output_file: path to output file
 
     Returns:
