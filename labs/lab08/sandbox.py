@@ -1,11 +1,17 @@
 # Lab 08 Sandbox - Follow along with the lab instructions
 
-# Step 1: The Problem - Data doesn't persist
-scores = []
-scores.append(85)
-scores.append(92)
-scores.append(78)
+f = open("data/scores.txt", "w")
+f.write("85\n")
+f.write("92\n")
+f.write("78\n")
+f.close()
 
-print("Scores:", scores)
+print("Scores saved to file!")
+
+f=open('data/scores,txt', "r")
+
+for line in f:
+    print(line)
+    f.close()
 
 # Try running this program again - scores will be empty!

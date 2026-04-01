@@ -1,8 +1,3 @@
-# WRONG — list as key
-# Run this to see the crash, then fix it using tuples
+menu = {"coffee": 5.00}
 
-config = {
-    [192, 168, 1, 1]: "Router"
-}
-
-print(config[[192, 168, 1, 1]])
+print(menu["coffee"])   # KeyError: 'juice'

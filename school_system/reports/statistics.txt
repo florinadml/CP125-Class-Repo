@@ -1,0 +1,6 @@
+Name,Attendance
+Ali Ahmad,85.5
+Sara Hassan,72.0
+Ahmad Ibrahim,90.0
+Fatimah Omar,68.5
+Hassan Yusof,80.0

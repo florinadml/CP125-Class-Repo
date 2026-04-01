@@ -1,8 +1,12 @@
 def withdraw(accounts, card_number, amount):
-    # TODO: Your code here
-    pass
-
-
+    if card_number in accounts :
+        if accounts[card_number] >= amount :
+            accounts[card_number] -= amount
+            return accounts[card_number]
+        else :
+            return "Insufficient Funds"
+    else :
+        return "Card Not Found"
 
 accounts = {
     "4111-1111": 500.00,
